@@ -1,0 +1,48 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# mandelbrot
+
+Probably you just want to draw pretty pictures.
+
+Install with:
+
+```{r install, eval=FALSE}
+devtools::install_github("blmoore/mandelbrot")
+```
+
+## Examples
+
+```{r b_n_w}
+library(mandelbrot)
+
+mb <- mandelbrot()
+plot(mb)
+```
+
+Trippy colours
+```{r trip}
+mb <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
+                 ylim = c(0.1963144, 0.2174996), 
+                 iterations = 500)
+
+cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"))
+plot(mb, col = cols)
+```
+
+## Credits
+
+Straight wrapping of R / C code by Mario dos Reis.

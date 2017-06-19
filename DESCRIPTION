@@ -1,0 +1,11 @@
+Package: mandelbrot
+Type: Package
+Title: Generates views on the Mandelbrot set
+Version: 0.1.0
+Author: Mario dos Reis
+Maintainer: Ben Moore <ben@blm.io>
+Description: Estimates membership for the Mandelbrot set.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
