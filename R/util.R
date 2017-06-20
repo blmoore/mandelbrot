@@ -37,7 +37,34 @@ plot.mandelbrot <- function(mandelbrot,
 
   par(mar = rep(1, 4))
 
+  if (transform != "none") {
+    if (transform == "inverse") {
+      mandelbrot$z <- 1/mandelbrot$z
+    } else {
+      if (transform == "log") {
+        mandelbrot$z <- log(mandelbrot$z)
+      } else {
+        stop("transform not recognised: ", transform)
+      }
+    }
+  }
+
   image(mandelbrot, col = col, axes = FALSE)
 
   par <- old_par
 }
+
+
+#' @rdname as.data.frame
+#' @method as.data.frame mandelbrot
+#'
+#' @export
+as.data.frame.mandelbrot <- function(mandelbrot) {
+  df <- reshape2::melt(mb$z)
+  df$x <- mb$x[df$Var1]
+  df$y <- mb$y[df$Var2]
+  df[,c("x", "y", "value")]
+}
+
+
+
