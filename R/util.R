@@ -55,8 +55,11 @@ plot.mandelbrot <- function(mandelbrot,
 }
 
 
-#' @rdname as.data.frame
-#' @method as.data.frame mandelbrot
+#' Convert Mandelbrot object to data.frame for plotting
+#'
+#' Converts objects produced by \code{\link[mandelbrot]{mandelbrot}}
+#' to tidy data.frames for use with ggplot and other tidyverse packages.
+#'
 #'
 #' @export
 as.data.frame.mandelbrot <- function(mandelbrot) {
