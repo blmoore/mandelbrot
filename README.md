@@ -1,4 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<img align="right" src="figs/icon-1.png">
+
 mandelbrot
 ==========
 
@@ -22,7 +24,7 @@ mb <- mandelbrot()
 plot(mb)
 ```
 
-![](README-b_n_w-1.png)
+![](figs/README-b_n_w-1.png)
 
 Trippy colours
 
@@ -35,7 +37,7 @@ cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"))
 plot(mb, col = cols)
 ```
 
-![](README-trip-1.png)
+![](figs/README-trip-1.png)
 
 Don't like `image`? Convert to a `data.frame` for use with ggplot2:
 
@@ -59,7 +61,7 @@ ggplot(df, aes(x = x, y = y, fill = value)) +
   scale_fill_gradientn(colours = cols, guide = "none")
 ```
 
-![](README-ggplot-1.png)
+![](figs/README-ggplot-1.png)
 
 Credits
 -------
