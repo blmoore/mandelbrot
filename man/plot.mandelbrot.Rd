@@ -7,6 +7,9 @@
 \method{plot}{mandelbrot}(mandelbrot, col = mandelbrot_palette(c("white",
   grey.colors(50))), transform = c("none", "inverse", "log"))
 }
+\arguments{
+\item{mandelbrot}{}
+}
 \description{
 Draws coloured set membership using \code{image}.
 }

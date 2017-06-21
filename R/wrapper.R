@@ -22,7 +22,7 @@
 #'
 #' @export
 mandelbrot <- function(xlim = c(-3, 1), ylim = c(-1.8, 1.8),
-  x_res = 600, y_res = 600, iterations = 20) {
+  x_res = 600, y_res = 600, iterations = 50) {
 
   if(is.list(xlim)) {
     ylim <- range(xlim$y)

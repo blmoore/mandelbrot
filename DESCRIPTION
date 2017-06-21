@@ -2,8 +2,9 @@ Package: mandelbrot
 Type: Package
 Title: Generates views on the Mandelbrot set
 Version: 0.1.0
-Author: Mario dos Reis
-Maintainer: Ben Moore <ben@blm.io>
+Authors@R: c(
+  person("Ben", "Moore", email = "ben@blm.io", role = c("aut", "cre")),
+  person("Mario", "dos Reis", role = c("aut")))
 Description: Estimates membership for the Mandelbrot set.
 License: MIT
 Encoding: UTF-8

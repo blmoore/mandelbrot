@@ -6,7 +6,20 @@
 \usage{
 \method{as.data.frame}{mandelbrot}(mandelbrot)
 }
+\arguments{
+\item{mandelbrot}{a Mandelbrot set object produced by \code{\link[mandelbrot]{mandelbrot}}}
+}
+\value{
+a 3-column \code{data.frame}
+}
 \description{
 Converts objects produced by \code{\link[mandelbrot]{mandelbrot}}
 to tidy data.frames for use with ggplot and other tidyverse packages.
+}
+\examples{
+
+mb <- mandelbrot()
+df <- as.data.frame(mb)
+head(df)
+
 }

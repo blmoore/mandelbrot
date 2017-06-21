@@ -11,14 +11,15 @@ Takes a simple palette and expands / oscillates
 it for use with Mandelbrot sets.
 }
 \examples{
-blues <- RColorBrewer::brewer.pal("Blues", 9)
-cols <- mandelbrot_palette(blues, in_set = "grey70")
+view <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
+  ylim = c(0.1963144, 0.2174996), iter = 500)
 
-spectral <- RColorBrewer::brewer.pal("Spectral", 11)
+blues <- RColorBrewer::brewer.pal(9, "Blues")
+cols <- mandelbrot_palette(blues, in_set = "white")
+image(log(view$z), col = cols, axes = FALSE)
+
+spectral <- RColorBrewer::brewer.pal(11, "Spectral")
 cols <- mandelbrot_palette(spectral)
-
-view <- mandelbrot(x = c(-0.8438146, -0.8226294),
-  y = c(0.1963144, 0.2174996), iter = 500)
-image(-1/frac$z, col = spectral)
+image(-1/view$z, col = cols, axes = FALSE)
 
 }

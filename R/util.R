@@ -5,15 +5,16 @@
 #' it for use with Mandelbrot sets.
 #'
 #' @examples
-#' blues <- RColorBrewer::brewer.pal("Blues", 9)
-#' cols <- mandelbrot_palette(blues, in_set = "grey70")
+#' view <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
+#'   ylim = c(0.1963144, 0.2174996), iter = 500)
 #'
-#' spectral <- RColorBrewer::brewer.pal("Spectral", 11)
+#' blues <- RColorBrewer::brewer.pal(9, "Blues")
+#' cols <- mandelbrot_palette(blues, in_set = "white")
+#' image(log(view$z), col = cols, axes = FALSE)
+#'
+#' spectral <- RColorBrewer::brewer.pal(11, "Spectral")
 #' cols <- mandelbrot_palette(spectral)
-#'
-#' view <- mandelbrot(x = c(-0.8438146, -0.8226294),
-#'   y = c(0.1963144, 0.2174996), iter = 500)
-#' image(-1/frac$z, col = spectral)
+#' image(-1/view$z, col = cols, axes = FALSE)
 #'
 #' @export
 mandelbrot_palette <- function(palette, in_set = "black") {
@@ -26,6 +27,8 @@ mandelbrot_palette <- function(palette, in_set = "black") {
 #' Plot a Mandelbrot set using base graphics
 #'
 #' Draws coloured set membership using \code{image}.
+#'
+#' @param mandelbrot
 #'
 #' @export
 plot.mandelbrot <- function(mandelbrot,
@@ -60,12 +63,21 @@ plot.mandelbrot <- function(mandelbrot,
 #' Converts objects produced by \code{\link[mandelbrot]{mandelbrot}}
 #' to tidy data.frames for use with ggplot and other tidyverse packages.
 #'
+#' @param mandelbrot a Mandelbrot set object produced by \code{\link[mandelbrot]{mandelbrot}}
+#'
+#' @return a 3-column \code{data.frame}
+#'
+#' @examples
+#'
+#' mb <- mandelbrot()
+#' df <- as.data.frame(mb)
+#' head(df)
 #'
 #' @export
 as.data.frame.mandelbrot <- function(mandelbrot) {
-  df <- reshape2::melt(mb$z)
-  df$x <- mb$x[df$Var1]
-  df$y <- mb$y[df$Var2]
+  df <- reshape2::melt(mandelbrot$z)
+  df$x <- mandelbrot$x[df$Var1]
+  df$y <- mandelbrot$y[df$Var2]
   df[,c("x", "y", "value")]
 }
 

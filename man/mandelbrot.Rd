@@ -5,7 +5,7 @@
 \title{Calculate the Mandelbrot set}
 \usage{
 mandelbrot(xlim = c(-3, 1), ylim = c(-1.8, 1.8), x_res = 600,
-  y_res = 600, iterations = 20)
+  y_res = 600, iterations = 50)
 }
 \arguments{
 \item{xlim}{limits of x axis (real part)}
