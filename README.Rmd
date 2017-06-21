@@ -45,7 +45,7 @@ mb <- mandelbrot()
 plot(mb)
 ```
 
-Trippy colours
+Trippy colours:
 ```{r trip}
 mb <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
                  ylim = c(0.1963144, 0.2174996), 
@@ -55,7 +55,7 @@ cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"))
 plot(mb, col = cols)
 ```
 
-Don't like `image`? Convert to a `data.frame` for use with ggplot2:
+Don't like `image`? Convert to a `data.frame` and use with ggplot2:
 
 ```{r ggplot}
 library(ggplot2)

@@ -27,7 +27,7 @@ plot(mb)
 
 ![](figs/README-b_n_w-1.png)
 
-Trippy colours
+Trippy colours:
 
 ``` r
 mb <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
@@ -40,7 +40,7 @@ plot(mb, col = cols)
 
 ![](figs/README-trip-1.png)
 
-Don't like `image`? Convert to a `data.frame` for use with ggplot2:
+Don't like `image`? Convert to a `data.frame` and use with ggplot2:
 
 ``` r
 library(ggplot2)
