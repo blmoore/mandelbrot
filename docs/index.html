@@ -65,7 +65,7 @@
 mb &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot.html">mandelbrot</a></span>()
 <span class="kw">plot</span>(mb)</code></pre></div>
 <p><img src="figs/README-b_n_w-1.png" width="672"></p>
-<p>Trippy colours</p>
+<p>Trippy colours:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mb &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot.html">mandelbrot</a></span>(<span class="dt">xlim =</span> <span class="kw">c</span>(-<span class="fl">0.8438146</span>, -<span class="fl">0.8226294</span>),
                  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">0.1963144</span>, <span class="fl">0.2174996</span>), 
                  <span class="dt">iterations =</span> <span class="dv">500</span>)
@@ -73,19 +73,22 @@ mb &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot.
 cols &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot_palette.html">mandelbrot_palette</a></span>(RColorBrewer::<span class="kw">brewer.pal</span>(<span class="dv">11</span>, <span class="st">"Spectral"</span>))
 <span class="kw">plot</span>(mb, <span class="dt">col =</span> cols)</code></pre></div>
 <p><img src="figs/README-trip-1.png" width="672"></p>
-<p>Don’t like <code>image</code>? Convert to a <code>data.frame</code> for use with ggplot2:</p>
+<p>Don’t like <code>image</code>? Convert to a <code>data.frame</code> and use with ggplot2:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
 mb &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot.html">mandelbrot</a></span>(<span class="dt">xlim =</span> <span class="kw">c</span>(-<span class="fl">0.8335</span>, -<span class="fl">0.8325</span>),
-  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">0.205</span>, <span class="fl">0.206</span>), <span class="dt">iterations =</span> <span class="dv">1000</span>)
+                 <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">0.205</span>, <span class="fl">0.206</span>), 
+                 <span class="dt">x_res =</span> <span class="dv">1200</span>, <span class="dt">y_res =</span> <span class="dv">1200</span>,
+                 <span class="dt">iterations =</span> <span class="dv">1000</span>)
 
 <span class="co"># weird uneven palette made for a heatmap viz:</span>
 <span class="co"># https://benjaminlmoore.wordpress.com/2015/04/09/recreating-the-vaccination-heatmaps-in-r/</span>
 cols &lt;-<span class="st"> </span><span class="kw">c</span>(
   <span class="kw">colorRampPalette</span>(<span class="kw">c</span>(<span class="st">"#e7f0fa"</span>, <span class="st">"#c9e2f6"</span>, <span class="st">"#95cbee"</span>,
                      <span class="st">"#0099dc"</span>, <span class="st">"#4ab04a"</span>, <span class="st">"#ffd73e"</span>))(<span class="dv">10</span>),
-  <span class="kw">colorRampPalette</span>(<span class="kw">c</span>(<span class="st">"#eec73a"</span>, <span class="st">"#e29421"</span>, <span class="st">"#e29421"</span>, <span class="st">"#f05336"</span>,<span class="st">"#ce472e"</span>),
-    <span class="dt">bias=</span><span class="dv">2</span>)(<span class="dv">90</span>), <span class="st">"black"</span>)
+  <span class="kw">colorRampPalette</span>(<span class="kw">c</span>(<span class="st">"#eec73a"</span>, <span class="st">"#e29421"</span>, <span class="st">"#e29421"</span>, 
+                     <span class="st">"#f05336"</span>,<span class="st">"#ce472e"</span>), <span class="dt">bias=</span><span class="dv">2</span>)(<span class="dv">90</span>), 
+  <span class="st">"black"</span>)
 
 df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mb)
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">fill =</span> value)) +
