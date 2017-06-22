@@ -78,7 +78,7 @@ cols &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbro
 
 mb &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot.html">mandelbrot</a></span>(<span class="dt">xlim =</span> <span class="kw">c</span>(-<span class="fl">0.8335</span>, -<span class="fl">0.8325</span>),
                  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">0.205</span>, <span class="fl">0.206</span>), 
-                 <span class="dt">x_res =</span> <span class="dv">1200</span>, <span class="dt">y_res =</span> <span class="dv">1200</span>,
+                 <span class="dt">resolution =</span> <span class="dv">1200</span>,
                  <span class="dt">iterations =</span> <span class="dv">1000</span>)
 
 <span class="co"># weird uneven palette made for a heatmap viz:</span>
@@ -91,16 +91,16 @@ cols &lt;-<span class="st"> </span><span class="kw">c</span>(
   <span class="st">"black"</span>)
 
 df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mb)
-<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">fill =</span> value)) +
-<span class="st">  </span><span class="kw">geom_raster</span>(<span class="dt">interpolate =</span> <span class="ot">TRUE</span>) +<span class="st"> </span><span class="kw">theme_void</span>() +
-<span class="st">  </span><span class="kw">scale_fill_gradientn</span>(<span class="dt">colours =</span> cols, <span class="dt">guide =</span> <span class="st">"none"</span>)</code></pre></div>
+<span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(df, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">fill =</span> value)) +
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_tile">geom_raster</a></span>(<span class="dt">interpolate =</span> <span class="ot">TRUE</span>) +<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_void</a></span>() +
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_gradient">scale_fill_gradientn</a></span>(<span class="dt">colours =</span> cols, <span class="dt">guide =</span> <span class="st">"none"</span>)</code></pre></div>
 <p><img src="figs/README-ggplot-1.png" width="672"></p>
 </div>
 <div id="credits" class="section level2">
 <h2 class="hasAnchor">
 <a href="#credits" class="anchor"></a>Credits</h2>
 <ul>
-<li>Wraps original R / C code by Mario dos Reis.</li>
+<li>Wraps original R / C code by <span class="citation">[@mariodosreis]</span>(<a href="https://github.com/mariodosreis" class="uri">https://github.com/mariodosreis</a>) (see R package <a href="https://github.com/mariodosreis/fractal">fractal</a>.</li>
 </ul>
 </div>
 </div>
@@ -108,7 +108,8 @@ df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mb)
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>License</h2>
+    <h2 class="hasAnchor">
+<a href="#sidebar" class="anchor"></a>License</h2>
 <p><a href="https://opensource.org/licenses/mit-license.php">MIT</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">

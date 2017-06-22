@@ -47,7 +47,7 @@ library(ggplot2)
 
 mb <- mandelbrot(xlim = c(-0.8335, -0.8325),
                  ylim = c(0.205, 0.206), 
-                 x_res = 1200, y_res = 1200,
+                 resolution = 1200L,
                  iterations = 1000)
 
 # weird uneven palette made for a heatmap viz:
@@ -70,4 +70,4 @@ ggplot(df, aes(x = x, y = y, fill = value)) +
 Credits
 -------
 
--   Wraps original R / C code by Mario dos Reis.
+-   Wraps original R / C code by [mariodosreis](https://github.com/mariodosreis) (see R package [fractal](https://github.com/mariodosreis/fractal)).

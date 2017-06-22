@@ -6,6 +6,11 @@
 \usage{
 mandelbrot_palette(palette, in_set = "black")
 }
+\arguments{
+\item{palette}{vector of colour hex strings (e.g. '#FFFFFF')}
+
+\item{in_set}{colour for areas in the Mandelbrot set}
+}
 \description{
 Takes a simple palette and expands / oscillates
 it for use with Mandelbrot sets.

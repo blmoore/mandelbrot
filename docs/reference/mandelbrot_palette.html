@@ -23,6 +23,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+  
+  
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -76,16 +78,29 @@ it for use with Mandelbrot sets.</p>
     
 
     <pre class="usage"><span class='fu'>mandelbrot_palette</span>(<span class='no'>palette</span>, <span class='kw'>in_set</span> <span class='kw'>=</span> <span class='st'>"black"</span>)</pre>
-        
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>palette</th>
+      <td><p>vector of colour hex strings (e.g. '#FFFFFF')</p></td>
+    </tr>
+    <tr>
+      <th>in_set</th>
+      <td><p>colour for areas in the Mandelbrot set</p></td>
+    </tr>
+    </table>
+    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>view</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='mandelbrot.html'>mandelbrot</a></span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>0.8438146</span>, -<span class='fl'>0.8226294</span>),
   <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.1963144</span>, <span class='fl'>0.2174996</span>), <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>500</span>)
 
-<span class='no'>blues</span> <span class='kw'>&lt;-</span> <span class='kw'>RColorBrewer</span><span class='kw'>::</span><span class='fu'>brewer.pal</span>(<span class='fl'>9</span>, <span class='st'>"Blues"</span>)
+<span class='no'>blues</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>RColorBrewer</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>brewer.pal</a></span>(<span class='fl'>9</span>, <span class='st'>"Blues"</span>)
 <span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='fu'>mandelbrot_palette</span>(<span class='no'>blues</span>, <span class='kw'>in_set</span> <span class='kw'>=</span> <span class='st'>"white"</span>)
 <span class='fu'>image</span>(<span class='fu'>log</span>(<span class='no'>view</span>$<span class='no'>z</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><img src='mandelbrot_palette-2.png' alt='' width='540' height='400' /><div class='input'>
-<span class='no'>spectral</span> <span class='kw'>&lt;-</span> <span class='kw'>RColorBrewer</span><span class='kw'>::</span><span class='fu'>brewer.pal</span>(<span class='fl'>11</span>, <span class='st'>"Spectral"</span>)
+<span class='no'>spectral</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>RColorBrewer</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/RColorBrewer/topics/ColorBrewer'>brewer.pal</a></span>(<span class='fl'>11</span>, <span class='st'>"Spectral"</span>)
 <span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='fu'>mandelbrot_palette</span>(<span class='no'>spectral</span>)
 <span class='fu'>image</span>(-<span class='fl'>1</span>/<span class='no'>view</span>$<span class='no'>z</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>cols</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><img src='mandelbrot_palette-4.png' alt='' width='540' height='400' /><div class='input'>
 </div></pre>
@@ -93,6 +108,7 @@ it for use with Mandelbrot sets.</p>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
             
       <li><a href="#examples">Examples</a></li>
     </ul>

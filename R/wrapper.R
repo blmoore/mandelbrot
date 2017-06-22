@@ -9,8 +9,9 @@
 #'
 #' @param xlim limits of x axis (real part)
 #' @param ylim limits of y axis (imaginary part)
-#' @param x_res resolution in x
-#' @param y_res resolution in y
+#' @param resolution either an integer \eqn{n} for \eqn{n^2} pixels
+#'   or a list with x and y components specifying the resolution
+#'   in each direction (e.g. \code{list(x = 500, y = 500)})
 #' @param iterations maximum number of iterations to
 #'   evaluate each case
 #'
@@ -22,11 +23,28 @@
 #'
 #' @export
 mandelbrot <- function(xlim = c(-3, 1), ylim = c(-1.8, 1.8),
-  x_res = 600, y_res = 600, iterations = 50) {
+  resolution = 600, iterations = 50) {
 
-  if(is.list(xlim)) {
+  if (is.list(xlim)) {
     ylim <- range(xlim$y)
     xlim <- range(xlim$x)
+  }
+
+  if (is.list(resolution)) {
+    if (!length(resolution) == 2 | !c("x", "y") %in% names(resolution)) {
+      stop("resolution should be a named list, e.g. list(x = 500, y = 500)")
+    } else {
+      x_res <- resolution$x
+      y_res <- resolution$y
+    }
+  } else {
+    if (is.numeric(resolution) & length(resolution) == 1) {
+      resolution <- as.integer(resolution)
+      x_res <- resolution
+      y_res <- resolution
+    } else {
+      stop("resolution should be an integer, not ", resolution)
+    }
   }
 
   if (!is.numeric(xlim) | !is.numeric(ylim)) {

@@ -4,17 +4,17 @@
 \alias{mandelbrot}
 \title{Calculate the Mandelbrot set}
 \usage{
-mandelbrot(xlim = c(-3, 1), ylim = c(-1.8, 1.8), x_res = 600,
-  y_res = 600, iterations = 50)
+mandelbrot(xlim = c(-3, 1), ylim = c(-1.8, 1.8), resolution = 600,
+  iterations = 50)
 }
 \arguments{
 \item{xlim}{limits of x axis (real part)}
 
 \item{ylim}{limits of y axis (imaginary part)}
 
-\item{x_res}{resolution in x}
-
-\item{y_res}{resolution in y}
+\item{resolution}{either an integer \eqn{n} for \eqn{n^2} pixels
+or a list with x and y components specifying the resolution
+in each direction (e.g. \code{list(x = 500, y = 500)})}
 
 \item{iterations}{maximum number of iterations to
 evaluate each case}

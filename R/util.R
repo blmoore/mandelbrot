@@ -4,6 +4,9 @@
 #' Takes a simple palette and expands / oscillates
 #' it for use with Mandelbrot sets.
 #'
+#' @param palette vector of colour hex strings (e.g. '#FFFFFF')
+#' @param in_set colour for areas in the Mandelbrot set
+#'
 #' @examples
 #' view <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
 #'   ylim = c(0.1963144, 0.2174996), iter = 500)

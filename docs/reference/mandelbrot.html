@@ -23,6 +23,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+  
+  
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -75,8 +77,8 @@
 using an underlying C function</p>
     
 
-    <pre class="usage"><span class='fu'>mandelbrot</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>3</span>, <span class='fl'>1</span>), <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>1.8</span>, <span class='fl'>1.8</span>), <span class='kw'>x_res</span> <span class='kw'>=</span> <span class='fl'>600</span>,
-  <span class='kw'>y_res</span> <span class='kw'>=</span> <span class='fl'>600</span>, <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='fl'>50</span>)</pre>
+    <pre class="usage"><span class='fu'>mandelbrot</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>3</span>, <span class='fl'>1</span>), <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>1.8</span>, <span class='fl'>1.8</span>), <span class='kw'>resolution</span> <span class='kw'>=</span> <span class='fl'>600</span>,
+  <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='fl'>50</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -90,12 +92,10 @@ using an underlying C function</p>
       <td><p>limits of y axis (imaginary part)</p></td>
     </tr>
     <tr>
-      <th>x_res</th>
-      <td><p>resolution in x</p></td>
-    </tr>
-    <tr>
-      <th>y_res</th>
-      <td><p>resolution in y</p></td>
+      <th>resolution</th>
+      <td><p>either an integer \(n\) for \(n^2\) pixels
+or a list with x and y components specifying the resolution
+in each direction (e.g. <code>list(x = 500, y = 500)</code>)</p></td>
     </tr>
     <tr>
       <th>iterations</th>
@@ -110,7 +110,7 @@ evaluate each case</p></td>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p><a href = 'http://people.cryst.bbk.ac.uk/~fdosr01/Rfractals/index.html'>http://people.cryst.bbk.ac.uk/~fdosr01/Rfractals/index.html</a></p>
+    <p><a href='http://people.cryst.bbk.ac.uk/~fdosr01/Rfractals/index.html'>http://people.cryst.bbk.ac.uk/~fdosr01/Rfractals/index.html</a></p>
     
 
   </div>
