@@ -21,7 +21,7 @@ par(bg = NA, mar=rep(0, 4))
 image(mb, col = c(rgb(0, 0, 0, 0), "grey80"), axes = F)
 par <- old_par
 ```
-<img align="right" src="figs/icon-1.png">
+<img align="right" src="figs/icon-1.png" style="max-width: 300px">
 
 # mandelbrot
 

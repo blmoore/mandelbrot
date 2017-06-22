@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<img align="right" src="figs/icon-1.png">
+<img align="right" src="figs/icon-1.png" style="max-width: 300px">
 
 mandelbrot
 ==========
