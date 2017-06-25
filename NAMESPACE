@@ -2,7 +2,7 @@
 
 S3method(as.data.frame,mandelbrot)
 S3method(plot,mandelbrot)
+S3method(print,mandelbrot)
 export(mandelbrot)
-export(mandelbrot0)
 export(mandelbrot_palette)
 useDynLib(mandelbrot,mandelbrot_)

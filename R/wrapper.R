@@ -16,7 +16,10 @@
 #' \deqn{f_{z+1} = z^2 + c}
 #'
 #' For information and discussion on the Mandelbrot and
-#' related sets, one great resource is \href{https://plus.maths.org/content/unveiling-mandelbrot-set}{plus.maths.org}. There's also a popular \href{https://www.youtube.com/watch?v=NGMRB4O922I}{YouTube video by Numberphile}.
+#' related sets, one great resource is
+#' \href{https://plus.maths.org/content/unveiling-mandelbrot-set}{plus.maths.org}.
+#' There's also a popular
+#' \href{https://www.youtube.com/watch?v=NGMRB4O922I}{YouTube video by Numberphile}.
 #'
 #' @section Credits:
 #' Wraps original C code by Mario dos Reis, September 2003.
@@ -89,57 +92,6 @@ mandelbrot <- function(xlim = c(-2, 2), ylim = c(-2, 2),
     list(x = x_coord, y = y_coord,
       z = matrix(this_set, ncol = y_res, byrow = T)
     ),
-    class = "mandelbrot"
+    class = c("mandelbrot", "list")
   )
-}
-
-#' @rdname mandelbrot
-#'
-#' @export
-mandelbrot0 <- function(xlim = c(-2, 2), ylim = c(-2, 2),
-  resolution = 600, iterations = 50) {
-
-  if (is.list(xlim)) {
-    ylim <- range(xlim$y)
-    xlim <- range(xlim$x)
-  }
-
-  if (is.list(resolution)) {
-    if (!length(resolution) == 2 | !c("x", "y") %in% names(resolution)) {
-      stop("resolution should be a named list, e.g. list(x = 500, y = 500)")
-    } else {
-      x_res <- resolution$x
-      y_res <- resolution$y
-    }
-  } else {
-    if (is.numeric(resolution) & length(resolution) == 1) {
-      resolution <- as.integer(resolution)
-      x_res <- resolution
-      y_res <- resolution
-    } else {
-      stop("resolution should be an integer, not ", resolution)
-    }
-  }
-
-  if (!is.numeric(xlim) | !is.numeric(ylim)) {
-    stop("xlim and ylim must be numeric")
-  }
-
-  x_coord <- seq(xlim[1], xlim[2], len = x_res)
-  y_coord <- seq(ylim[1], ylim[2], len = y_res)
-  set <- numeric(x_res * y_res)
-
-  # This is the call to the C function itself
-  this_set <- .C("mandelbrot_",
-    xcoo = as.double(x_coord),
-    ycoo = as.double(y_coord),
-    nx = as.integer(x_res),
-    ny = as.integer(y_res),
-    set = as.integer(set),
-    iter = as.integer(iterations))$set
-
-  # Return df suitable for ggplot2
-  df <- data.frame(expand.grid(x_coord, y_coord), this_set)
-  colnames(df) <- c("x", "y", "value")
-  df
 }

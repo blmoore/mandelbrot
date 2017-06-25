@@ -60,6 +60,18 @@ plot.mandelbrot <- function(mandelbrot,
   par <- old_par
 }
 
+#' @export
+print.mandelbrot <- function(x, ...) {
+  cat(" Mandelbrot set view object within limits x:",
+    paste(range(x$x), collapse = ", "),
+    "and y:",
+    paste(range(x$y), collapse = ", "),
+    "\n")
+  cat(" Iterations matrix:",
+    paste(dim(x$z), collapse = " x "))
+
+   invisible(x)
+}
 
 #' Convert Mandelbrot object to data.frame for plotting
 #'
@@ -79,15 +91,14 @@ plot.mandelbrot <- function(mandelbrot,
 #' @export
 as.data.frame.mandelbrot <- function(mandelbrot) {
   df <- reshape2::melt(mandelbrot$z)
+  df <- data.table::melt(mandelbrot$z)
   df$x <- mandelbrot$x[df$Var1]
   df$y <- mandelbrot$y[df$Var2]
   df[,c("x", "y", "value")]
 }
 
-# https://stackoverflow.com/a/10406005/1274516
-expand.grid.alt <- function(seq1, seq2) {
-  cbind(rep.int(seq1, length(seq2)),
-    c(t(matrix(rep.int(seq2, length(seq1)), nrow=length(seq2)))))
-}
 
-# expand.grid.alt(seq_len(nrow(dat)), seq_len(ncol(dat)))
+expand.grid.jc <- function(seq1, seq2) {
+  cbind(Var1 = rep.int(seq1, length(seq2)),
+    Var2 = rep.int(seq2, rep.int(length(seq1), length(seq2))))
+}
