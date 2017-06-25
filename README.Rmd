@@ -85,6 +85,14 @@ ggplot(df, aes(x = x, y = y, fill = value)) +
 
 ```
 
+## See also
+
+[shinybrot](https://github.com/blmoore/shinybrot) is a Shiny web app 
+that enables interactive exploration of the Mandelbrot set as generated
+by this package.
+
+Hosted on shinyapps: https://blmr.shinyapps.io/shinybrot
+
 ## Credits
 
 * Wraps original R / C code by [mariodosreis](https://github.com/mariodosreis) (see R package [fractal](https://github.com/mariodosreis/fractal)).
