@@ -1,6 +1,5 @@
 context("Mandelbrot interfaces")
 
-
 test_that("mandebrot generates correct results", {
 
   # range in set
