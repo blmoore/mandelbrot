@@ -4,10 +4,12 @@
 \alias{as.data.frame.mandelbrot}
 \title{Convert Mandelbrot object to data.frame for plotting}
 \usage{
-\method{as.data.frame}{mandelbrot}(mandelbrot)
+\method{as.data.frame}{mandelbrot}(x, ...)
 }
 \arguments{
-\item{mandelbrot}{a Mandelbrot set object produced by \code{\link[mandelbrot]{mandelbrot}}}
+\item{x}{a Mandelbrot set object produced by \code{\link[mandelbrot]{mandelbrot}}}
+
+\item{...}{ignored}
 }
 \value{
 a 3-column \code{data.frame}

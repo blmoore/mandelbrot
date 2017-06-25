@@ -6,9 +6,9 @@ Authors@R: c(
   person("Ben", "Moore", email = "ben@blm.io", role = c("aut", "cre")),
   person("Mario", "dos Reis", role = c("aut")))
 Description: Estimates membership for the Mandelbrot set.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
-Imports: reshape2, RColorBrewer, data.table
+Imports: reshape2, RColorBrewer
 Suggests: testthat

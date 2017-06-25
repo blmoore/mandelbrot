@@ -9,6 +9,8 @@ mandelbrot_palette(palette, folds = 2, in_set = "black")
 \arguments{
 \item{palette}{vector of colour hex strings (e.g. '#FFFFFF')}
 
+\item{folds}{number of times to wrap or 'fold' the palette}
+
 \item{in_set}{colour for areas in the Mandelbrot set}
 }
 \description{
