@@ -5,6 +5,8 @@
 mandelbrot
 ==========
 
+[![travis\_status](https://travis-ci.org/blmoore/mandelbrot.svg?branch=master)](https://travis-ci.org/blmoore/mandelbrot) [![codecov](https://codecov.io/gh/blmoore/mandelbrot/branch/master/graph/badge.svg)](https://codecov.io/gh/blmoore/mandelbrot) [![CRAN\_badge](http://www.r-pkg.org/badges/version/mandelbrot)](https://cran.r-project.org/package=mandelbrot)
+
 Curious whether your favourite complex number is a member of the Mandelbrot set?
 
 —No? Then probably you just want to draw pretty pictures.
