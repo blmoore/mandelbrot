@@ -2,9 +2,13 @@
 % Please edit documentation in R/wrapper.R
 \name{mandelbrot}
 \alias{mandelbrot}
+\alias{mandelbrot0}
 \title{Calculate the Mandelbrot set}
 \usage{
 mandelbrot(xlim = c(-2, 2), ylim = c(-2, 2), resolution = 600,
+  iterations = 50)
+
+mandelbrot0(xlim = c(-2, 2), ylim = c(-2, 2), resolution = 600,
   iterations = 50)
 }
 \arguments{

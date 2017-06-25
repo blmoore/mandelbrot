@@ -27,3 +27,23 @@ test_that("mandebrot generates correct results", {
 
 })
 
+test_that("mandelbrot and mandelbrot0 give the same results", {
+
+  mb1 <- as.data.frame(mandelbrot())
+  mb2 <- mandelbrot0()
+
+  expect_equal(mb1, mb2)
+
+  low_res <- 100
+  mb1 <- as.data.frame(mandelbrot(resolution = low_res))
+  mb2 <- mandelbrot0(resolution = low_res)
+
+  expect_equal(mb1, mb2)
+
+})
+
+test_that("mandelbrot0 won't write uneven x/y resolutions", {
+  uneven_res <- list(x = 400, y = 200)
+  expect_error(mandelbrot0(resolution = uneven_res))
+})
+

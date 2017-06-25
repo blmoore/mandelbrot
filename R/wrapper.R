@@ -53,7 +53,7 @@ mandelbrot <- function(xlim = c(-2, 2), ylim = c(-2, 2),
   }
 
   if (is.list(resolution)) {
-    if (!length(resolution) == 2 | !c("x", "y") %in% names(resolution)) {
+    if (!length(resolution) == 2 | !all(c("x", "y") %in% names(resolution))) {
       stop("resolution should be a named list, e.g. list(x = 500, y = 500)")
     } else {
       x_res <- resolution$x
@@ -94,4 +94,51 @@ mandelbrot <- function(xlim = c(-2, 2), ylim = c(-2, 2),
     ),
     class = c("mandelbrot", "list")
   )
+}
+
+#' @rdname mandelbrot
+#'
+#' @useDynLib mandelbrot mandelbrot_alt
+#'
+#' @export
+mandelbrot0 <- function(xlim = c(-2, 2), ylim = c(-2, 2),
+  resolution = 600, iterations = 50) {
+
+  if (is.list(xlim)) {
+    ylim <- range(xlim$y)
+    xlim <- range(xlim$x)
+  }
+
+  if (is.list(resolution)) {
+    stop("mandelbrot0 only works equal x / y resolutions, use mandelbrot() instead")
+  } else {
+    if (is.numeric(resolution) & length(resolution) == 1) {
+      resolution <- as.integer(resolution)
+      x_res <- resolution
+      y_res <- resolution
+    } else {
+      stop("resolution should be an integer, not ", resolution)
+    }
+  }
+
+  if (!is.numeric(xlim) | !is.numeric(ylim)) {
+    stop("xlim and ylim must be numeric")
+  }
+
+  x_coord <- seq(xlim[1], xlim[2], len = x_res)
+  y_coord <- seq(ylim[1], ylim[2], len = y_res)
+  set <- numeric(x_res * y_res)
+
+  # This is the call to the C function itself
+  this_set <- .C("mandelbrot_alt",
+    xcoo = as.double(x_coord),
+    ycoo = as.double(y_coord),
+    nx = as.integer(x_res),
+    ny = as.integer(y_res),
+    set = as.integer(set),
+    iter = as.integer(iterations))$set
+
+  df <- data.frame(expand.grid(x_coord, y_coord), this_set)
+  colnames(df) <- c("x", "y", "value")
+  df
 }
