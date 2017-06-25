@@ -20,11 +20,11 @@
 #' image(-1/view$z, col = cols, axes = FALSE)
 #'
 #' @export
-mandelbrot_palette <- function(palette, in_set = "black") {
+mandelbrot_palette <- function(palette, folds = 2, in_set = "black") {
   if (length(palette) < 50) {
     palette <- colorRampPalette(palette)(50)
   }
-  c(rep(c(palette, rev(palette)), 2), in_set)
+  c(rep(c(palette, rev(palette)), folds), in_set)
 }
 
 #' Plot a Mandelbrot set using base graphics
@@ -36,7 +36,7 @@ mandelbrot_palette <- function(palette, in_set = "black") {
 #' @export
 plot.mandelbrot <- function(mandelbrot,
   col = mandelbrot_palette(c("white", grey.colors(50))),
-  transform = c("none", "inverse", "log")) {
+  transform = c("none", "inverse", "log"), ...) {
 
   transform <- match.arg(transform)
   old_par <- par()
@@ -55,7 +55,7 @@ plot.mandelbrot <- function(mandelbrot,
     }
   }
 
-  image(mandelbrot, col = col, axes = FALSE)
+  image(mandelbrot, col = col, axes = FALSE, ...)
 
   par <- old_par
 }
@@ -84,5 +84,10 @@ as.data.frame.mandelbrot <- function(mandelbrot) {
   df[,c("x", "y", "value")]
 }
 
+# https://stackoverflow.com/a/10406005/1274516
+expand.grid.alt <- function(seq1, seq2) {
+  cbind(rep.int(seq1, length(seq2)),
+    c(t(matrix(rep.int(seq2, length(seq1)), nrow=length(seq2)))))
+}
 
-
+# expand.grid.alt(seq_len(nrow(dat)), seq_len(ncol(dat)))

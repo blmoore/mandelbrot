@@ -74,10 +74,13 @@
 
     
     <p>Generates a view on the Mandelbrot set
-using an underlying C function</p>
+using an underlying C function.</p>
     
 
-    <pre class="usage"><span class='fu'>mandelbrot</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>3</span>, <span class='fl'>1</span>), <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>1.8</span>, <span class='fl'>1.8</span>), <span class='kw'>resolution</span> <span class='kw'>=</span> <span class='fl'>600</span>,
+    <pre class="usage"><span class='fu'>mandelbrot</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>2</span>, <span class='fl'>2</span>), <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>2</span>, <span class='fl'>2</span>), <span class='kw'>resolution</span> <span class='kw'>=</span> <span class='fl'>600</span>,
+  <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='fl'>50</span>)
+
+<span class='fu'>mandelbrot0</span>(<span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>2</span>, <span class='fl'>2</span>), <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'>c</span>(-<span class='fl'>2</span>, <span class='fl'>2</span>), <span class='kw'>resolution</span> <span class='kw'>=</span> <span class='fl'>600</span>,
   <span class='kw'>iterations</span> <span class='kw'>=</span> <span class='fl'>50</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
@@ -104,13 +107,38 @@ evaluate each case</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a <code>mandelbrot</code> structure with components: <code>x</code> a vector
+  of the real parts of the x-axis; <code>y</code> the imaginary parts of each
+  number (the y-axis); <code>z</code> a matrix of the number of iterations that
+  \(|z|&lt;2\)</p>
+    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Original code by Mario dos Reis, September 2003.</p>
+    <p><code>mandelbrot0</code> is an experimental interface
+for generating tidy data.frames faster than
+<code>as.data.frame(mandelbrot())</code>.</p>
+    
+    <h2 class="hasAnchor" id="mandelbrot-set"><a class="anchor" href="#mandelbrot-set"></a>Mandelbrot set</h2>
+
+    
+    <p>In brief, the Mandelbrot set contains the complex numbers
+where the 0 orbit of the following function remains
+bounded (\(&lt;2\)):
+$$f_{z+1} = z^2 + c$$</p>
+<p>For information and discussion on the Mandelbrot and
+related sets, one great resource is <a href='https://plus.maths.org/content/unveiling-mandelbrot-set'>plus.maths.org</a>. There's also a popular <a href='https://www.youtube.com/watch?v=NGMRB4O922I'>YouTube video by Numberphile</a>.</p>
+    
+    <h2 class="hasAnchor" id="credits"><a class="anchor" href="#credits"></a>Credits</h2>
+
+    
+    <p>Wraps original C code by Mario dos Reis, September 2003.</p>
     
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p><a href='http://people.cryst.bbk.ac.uk/~fdosr01/Rfractals/index.html'>http://people.cryst.bbk.ac.uk/~fdosr01/Rfractals/index.html</a></p>
+    <p><a href='https://stat.ethz.ch/pipermail/r-help/2003-October/039773.html'>https://stat.ethz.ch/pipermail/r-help/2003-October/039773.html</a>
+  <a href='http://people.cryst.bbk.ac.uk/~fdosr01/Rfractals/index.html'>http://people.cryst.bbk.ac.uk/~fdosr01/Rfractals/index.html</a></p>
     
 
   </div>
@@ -119,14 +147,16 @@ evaluate each case</p></td>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#mandelbrot-set">Mandelbrot set</a></li>
+
+      <li><a href="#credits">Credits</a></li>
 
       <li><a href="#references">References</a></li>
           </ul>
-
-    <h2>Author</h2>
-    
-Mario dos Reis
 
   </div>
 </div>

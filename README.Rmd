@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```{r icon, echo=FALSE, fig.align='right', fig.width=2, fig.height=1.5, fig.path="figs/", fig.show='hide'}
 # draw small readme icon
 library(mandelbrot)
-mb <- mandelbrot()
+mb <- mandelbrot(xlim = c(-3, 1), c(-1.8, 1.8))
 old_par <- par()
 par(bg = NA, mar=rep(0, 4))
 image(mb, col = c(rgb(0, 0, 0, 0), "grey80"), axes = F)
@@ -42,7 +42,7 @@ devtools::install_github("blmoore/mandelbrot")
 library(mandelbrot)
 
 mb <- mandelbrot()
-plot(mb)
+plot(mb, asp = 1)
 ```
 
 Trippy colours:

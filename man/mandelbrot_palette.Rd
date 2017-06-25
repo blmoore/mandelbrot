@@ -4,7 +4,7 @@
 \alias{mandelbrot_palette}
 \title{Generate palette suitable for coloring a set}
 \usage{
-mandelbrot_palette(palette, in_set = "black")
+mandelbrot_palette(palette, folds = 2, in_set = "black")
 }
 \arguments{
 \item{palette}{vector of colour hex strings (e.g. '#FFFFFF')}

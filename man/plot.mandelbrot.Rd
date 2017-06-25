@@ -5,7 +5,7 @@
 \title{Plot a Mandelbrot set using base graphics}
 \usage{
 \method{plot}{mandelbrot}(mandelbrot, col = mandelbrot_palette(c("white",
-  grey.colors(50))), transform = c("none", "inverse", "log"))
+  grey.colors(50))), transform = c("none", "inverse", "log"), ...)
 }
 \arguments{
 \item{mandelbrot}{}

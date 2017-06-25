@@ -22,7 +22,7 @@ Examples
 library(mandelbrot)
 
 mb <- mandelbrot()
-plot(mb)
+plot(mb, asp = 1)
 ```
 
 ![](figs/README-b_n_w-1.png)
