@@ -7,13 +7,13 @@
 mandelbrot_palette(palette, fold = TRUE, reps = 1L, in_set = "black")
 }
 \arguments{
-\item{palette}{vector of colour hex strings (e.g. '#FFFFFF')}
+\item{palette}{vector of color hex strings (e.g. '#FFFFFF')}
 
 \item{fold}{wrap or fold the palette back on itself}
 
 \item{reps}{number of times to replicate the color vector}
 
-\item{in_set}{colur for areas in the Mandelbrot set}
+\item{in_set}{color for areas in the Mandelbrot set}
 }
 \value{
 an extended color vector
