@@ -9,9 +9,11 @@ mandelbrot_palette(palette, fold = TRUE, reps = 1L, in_set = "black")
 \arguments{
 \item{palette}{vector of colour hex strings (e.g. '#FFFFFF')}
 
-\item{in_set}{colur for areas in the Mandelbrot set}
+\item{fold}{wrap or fold the palette back on itself}
 
-\item{folds}{number of times to wrap or 'fold' the palette}
+\item{reps}{number of times to replicate the color vector}
+
+\item{in_set}{colur for areas in the Mandelbrot set}
 }
 \value{
 an extended color vector
@@ -24,12 +26,13 @@ it for use with Mandelbrot sets.
 view <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
   ylim = c(0.1963144, 0.2174996), iter = 500)
 
-blues <- RColorBrewer::brewer.pal(9, "Blues")
-cols <- mandelbrot_palette(blues, in_set = "white")
-image(log(view$z), col = cols, axes = FALSE)
-
 spectral <- RColorBrewer::brewer.pal(11, "Spectral")
 cols <- mandelbrot_palette(spectral)
 image(-1/view$z, col = cols, axes = FALSE)
+
+# simpler palettes might need folds / reps to look good
+blues <- RColorBrewer::brewer.pal(9, "Blues")
+cols <- mandelbrot_palette(blues, in_set = "white")
+image(log(view$z), col = cols, fold = TRUE, reps = 2, axes = FALSE)
 
 }

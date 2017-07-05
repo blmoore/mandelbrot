@@ -100,7 +100,7 @@ cols &lt;-<span class="st"> </span><span class="kw">c</span>(
 df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mb)
 <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(df, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">fill =</span> value)) +
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_tile">geom_raster</a></span>(<span class="dt">interpolate =</span> <span class="ot">TRUE</span>) +<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_void</a></span>() +
-<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_gradient">scale_fill_gradientn</a></span>(<span class="dt">colours =</span> cols, <span class="dt">guide =</span> <span class="st">"none"</span>)</code></pre></div>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_gradient">scale_fill_gradientn</a></span>(<span class="dt">colours =</span> cols, <span class="dt">guide =</span> <span class="st">"none"</span>) </code></pre></div>
 <p><img src="figs/README-ggplot-1.png" width="672"></p>
 <p><code>mandelbrot0</code> is a faster interface for <code>as.data.frame(mandelbrot(...))</code>.</p>
 </div>

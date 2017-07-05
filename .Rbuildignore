@@ -4,3 +4,5 @@
 ^README-.*\.png$
 ^docs$
 ^_pkgdown\.yml$
+^figs$
+^\.travis\.yml$
