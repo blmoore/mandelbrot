@@ -37,7 +37,7 @@ mb <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
                  iterations = 500)
 
 cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"))
-plot(mb, col = cols)
+plot(mb, col = cols, transform = "inv")
 ```
 
 ![](figs/README-trip-1.png)

@@ -63,16 +63,11 @@ void mandelbrot_(double *xcoo, double *ycoo, int *nx,
   return;
 }
 
-
+/* Alt interface to above that generates set data in
+ * a more convenient shape for fast reformatting
+ */
 void mandelbrot_alt(double *xcoo, double *ycoo, int *nx,
   int *ny, int *set, int *iter)
-
-  /* 'xcoo' and 'ycoo' are the x and y coordinates respectively
-  *  of all the points to be evaluated.
-  * 'nx' and 'ny' number of divisions along the x and y axes
-  * 'set' will store the practical output of the function
-  * 'iter' is the maximun number of iterations
-  */
 
 {
   int i, j, k;
@@ -82,10 +77,6 @@ void mandelbrot_alt(double *xcoo, double *ycoo, int *nx,
 
     for(j = 0; j < *ny; j++) {
 
-      /* initialise the complex point to be tested
-      * c[0] (or z[0]) is the real part
-      * c[1] (or z[1]) is the imaginary part
-      */
       c[0] = xcoo[i]; c[1] = ycoo[j];
       z[0] = 0;       z[1] = 0;
 
@@ -102,14 +93,7 @@ void mandelbrot_alt(double *xcoo, double *ycoo, int *nx,
         }
       }
 
-      /* fills the set vector
-      * notice the trick 'i * (*ny) + j' to find
-      * the appropiate position of the output in the
-      * vector set. The R function will take care of
-      * transforming this vector into a suitable matrix
-      * for plotting, etc.
-      */
-      set[j * (*ny) + i] = k;
+      set[j * (*nx) + i] = k;
     }
   }
   return;

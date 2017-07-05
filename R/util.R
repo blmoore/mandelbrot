@@ -21,11 +21,22 @@
 #' image(-1/view$z, col = cols, axes = FALSE)
 #'
 #' @export
-mandelbrot_palette <- function(palette, folds = 2, in_set = "black") {
-  if (length(palette) < 50) {
-    palette <- grDevices::colorRampPalette(palette)(50)
+mandelbrot_palette <- function(palette, fold = TRUE,
+  reps = 1L, in_set = "black") {
+
+  if (!fold %in% c(TRUE, FALSE)) {
+    stop("Fold must be TRUE or FALSE")
   }
-  c(rep(c(palette, rev(palette)), folds), in_set)
+
+  if (length(palette) < 100) {
+    palette <- grDevices::colorRampPalette(palette)(100)
+  }
+
+  if (fold) {
+    palette <- c(palette, rev(palette))
+  }
+
+  c(rep(palette, reps), in_set)
 }
 
 #' Plot a Mandelbrot set using base graphics
@@ -53,6 +64,7 @@ plot.mandelbrot <- function(x,
 
   if (transform != "none") {
     if (transform == "inverse") {
+
       x$z <- 1/x$z
     } else {
       if (transform == "log") {
