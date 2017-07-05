@@ -15,14 +15,16 @@
 #' view <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
 #'   ylim = c(0.1963144, 0.2174996), iter = 500)
 #'
+#' # can be used to simply interpolate a color gradient
 #' spectral <- RColorBrewer::brewer.pal(11, "Spectral")
-#' cols <- mandelbrot_palette(spectral)
-#' image(-1/view$z, col = cols, axes = FALSE)
+#' cols <- mandelbrot_palette(spectral, fold = FALSE)
+#' plot(view, col = cols, transform = "inv")
 #'
-#' # simpler palettes might need folds / reps to look good
+#' # simple palettes might need folds / reps to look good
 #' blues <- RColorBrewer::brewer.pal(9, "Blues")
-#' cols <- mandelbrot_palette(blues, in_set = "white")
-#' image(log(view$z), col = cols, fold = TRUE, reps = 2, axes = FALSE)
+#' cols <- mandelbrot_palette(blues, in_set = "white",
+#'   fold = TRUE, reps = 2)
+#' plot(view, col = cols, transform = "log")
 #'
 #' @export
 mandelbrot_palette <- function(palette, fold = TRUE,
