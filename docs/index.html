@@ -66,14 +66,20 @@
 mb &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot.html">mandelbrot</a></span>()
 <span class="kw">plot</span>(mb, <span class="dt">asp =</span> <span class="dv">1</span>)</code></pre></div>
 <p><img src="figs/README-b_n_w-1.png" width="672"></p>
-<p>Trippy colours:</p>
+<p>Pretty colours:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mb &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot.html">mandelbrot</a></span>(<span class="dt">xlim =</span> <span class="kw">c</span>(-<span class="fl">0.8438146</span>, -<span class="fl">0.8226294</span>),
                  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">0.1963144</span>, <span class="fl">0.2174996</span>), 
-                 <span class="dt">iterations =</span> <span class="dv">500</span>)
+                 <span class="dt">iterations =</span> <span class="dv">500</span>, <span class="dt">resolution =</span> <span class="dv">800</span>)
 
-cols &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot_palette.html">mandelbrot_palette</a></span>(RColorBrewer::<span class="kw">brewer.pal</span>(<span class="dv">11</span>, <span class="st">"Spectral"</span>))
+cols &lt;-<span class="st"> </span><span class="kw"><a href="reference/mandelbrot_palette.html">mandelbrot_palette</a></span>(RColorBrewer::<span class="kw">brewer.pal</span>(<span class="dv">11</span>, <span class="st">"Spectral"</span>), <span class="dt">fold =</span> <span class="ot">FALSE</span>)
 <span class="kw">plot</span>(mb, <span class="dt">col =</span> cols)</code></pre></div>
 <p><img src="figs/README-trip-1.png" width="672"></p>
+<p>Experiment with transforms:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># layout config (reset after)</span>
+<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">pty =</span> <span class="st">"s"</span>, <span class="dt">mar =</span> <span class="kw">rep</span>(<span class="dv">0</span>, <span class="dv">4</span>))
+<span class="kw">plot</span>(mb, <span class="dt">col =</span> cols, <span class="dt">transform =</span> <span class="st">"inverse"</span>)
+<span class="kw">plot</span>(mb, <span class="dt">col =</span> cols, <span class="dt">transform =</span> <span class="st">"log"</span>)</code></pre></div>
+<p><img src="figs/README-trans-1.png" width="672"></p>
 <p>Don’t like <code>image</code>? Convert to a <code>data.frame</code> and use with ggplot2:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
@@ -96,6 +102,7 @@ df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mb)
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_tile">geom_raster</a></span>(<span class="dt">interpolate =</span> <span class="ot">TRUE</span>) +<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_void</a></span>() +
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_gradient">scale_fill_gradientn</a></span>(<span class="dt">colours =</span> cols, <span class="dt">guide =</span> <span class="st">"none"</span>)</code></pre></div>
 <p><img src="figs/README-ggplot-1.png" width="672"></p>
+<p><code>mandelbrot0</code> is a faster interface for <code>as.data.frame(mandelbrot(...))</code>.</p>
 </div>
 <div id="see-also" class="section level2">
 <h2 class="hasAnchor">

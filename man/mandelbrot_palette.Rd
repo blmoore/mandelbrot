@@ -4,14 +4,17 @@
 \alias{mandelbrot_palette}
 \title{Generate palette suitable for coloring a set}
 \usage{
-mandelbrot_palette(palette, folds = 2, in_set = "black")
+mandelbrot_palette(palette, fold = TRUE, reps = 1L, in_set = "black")
 }
 \arguments{
 \item{palette}{vector of colour hex strings (e.g. '#FFFFFF')}
 
-\item{folds}{number of times to wrap or 'fold' the palette}
+\item{in_set}{colur for areas in the Mandelbrot set}
 
-\item{in_set}{colour for areas in the Mandelbrot set}
+\item{folds}{number of times to wrap or 'fold' the palette}
+}
+\value{
+an extended color vector
 }
 \description{
 Takes a simple palette and expands / oscillates

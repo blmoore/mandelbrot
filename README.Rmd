@@ -49,14 +49,27 @@ mb <- mandelbrot()
 plot(mb, asp = 1)
 ```
 
-Trippy colours:
+Pretty colours:
 ```{r trip}
 mb <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
                  ylim = c(0.1963144, 0.2174996), 
-                 iterations = 500)
+                 iterations = 500, resolution = 800)
 
-cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"))
-plot(mb, col = cols, transform = "inv")
+cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"), fold = FALSE)
+plot(mb, col = cols)
+```
+
+Experiment with transforms:
+
+```{r trans, fig.height=3.5, fig.width=7}
+# layout config (reset after)
+par(mfrow = c(1, 2), pty = "s", mar = rep(0, 4))
+plot(mb, col = cols, transform = "inverse")
+plot(mb, col = cols, transform = "log")
+```
+
+```{r reset_par, echo=FALSE}
+par <- old_par
 ```
 
 Don't like `image`? Convert to a `data.frame` and use with ggplot2:
@@ -84,6 +97,8 @@ ggplot(df, aes(x = x, y = y, fill = value)) +
   scale_fill_gradientn(colours = cols, guide = "none")
 
 ```
+
+`mandelbrot0` is a faster interface for `as.data.frame(mandelbrot(...))`.
 
 ## See also
 

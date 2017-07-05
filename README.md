@@ -29,18 +29,29 @@ plot(mb, asp = 1)
 
 ![](figs/README-b_n_w-1.png)
 
-Trippy colours:
+Pretty colours:
 
 ``` r
 mb <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
                  ylim = c(0.1963144, 0.2174996), 
-                 iterations = 500)
+                 iterations = 500, resolution = 800)
 
-cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"))
-plot(mb, col = cols, transform = "inv")
+cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"), fold = FALSE)
+plot(mb, col = cols)
 ```
 
 ![](figs/README-trip-1.png)
+
+Experiment with transforms:
+
+``` r
+# layout config (reset after)
+par(mfrow = c(1, 2), pty = "s", mar = rep(0, 4))
+plot(mb, col = cols, transform = "inverse")
+plot(mb, col = cols, transform = "log")
+```
+
+![](figs/README-trans-1.png)
 
 Don't like `image`? Convert to a `data.frame` and use with ggplot2:
 
@@ -68,6 +79,8 @@ ggplot(df, aes(x = x, y = y, fill = value)) +
 ```
 
 ![](figs/README-ggplot-1.png)
+
+`mandelbrot0` is a faster interface for `as.data.frame(mandelbrot(...))`.
 
 See also
 --------

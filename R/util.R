@@ -6,7 +6,9 @@
 #'
 #' @param palette vector of colour hex strings (e.g. '#FFFFFF')
 #' @param folds number of times to wrap or 'fold' the palette
-#' @param in_set colour for areas in the Mandelbrot set
+#' @param in_set colur for areas in the Mandelbrot set
+#'
+#' @return an extended color vector
 #'
 #' @examples
 #' view <- mandelbrot(xlim = c(-0.8438146, -0.8226294),
@@ -64,8 +66,8 @@ plot.mandelbrot <- function(x,
 
   if (transform != "none") {
     if (transform == "inverse") {
-
       x$z <- 1/x$z
+      col <- rev(col)
     } else {
       if (transform == "log") {
         x$z <- log(x$z)
