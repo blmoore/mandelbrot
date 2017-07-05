@@ -24,7 +24,7 @@ Examples
 library(mandelbrot)
 
 mb <- mandelbrot()
-plot(mb, asp = 1)
+plot(mb)
 ```
 
 ![](figs/README-b_n_w-1.png)
@@ -75,7 +75,7 @@ cols <- c(
 df <- as.data.frame(mb)
 ggplot(df, aes(x = x, y = y, fill = value)) +
   geom_raster(interpolate = TRUE) + theme_void() +
-  scale_fill_gradientn(colours = cols, guide = "none")
+  scale_fill_gradientn(colours = cols, guide = "none") 
 ```
 
 ![](figs/README-ggplot-1.png)

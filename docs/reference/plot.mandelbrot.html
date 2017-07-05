@@ -78,7 +78,7 @@
 
     <pre class="usage"><span class='co'># S3 method for mandelbrot</span>
 <span class='fu'>plot</span>(<span class='no'>x</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='mandelbrot_palette.html'>mandelbrot_palette</a></span>(<span class='fu'>c</span>(<span class='st'>"white"</span>,
-  <span class='fu'>grey.colors</span>(<span class='fl'>50</span>))), <span class='kw'>transform</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"none"</span>, <span class='st'>"inverse"</span>, <span class='st'>"log"</span>), <span class='no'>...</span>)</pre>
+  <span class='fu'>grey.colors</span>(<span class='fl'>50</span>))), <span class='kw'>transform</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"none"</span>, <span class='st'>"inverse"</span>, <span class='st'>"log"</span>), <span class='kw'>asp</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -96,6 +96,11 @@
       <th>transform</th>
       <td><p>the name of a transformation to apply to the number
 of iterations matrix</p></td>
+    </tr>
+    <tr>
+      <th>asp</th>
+      <td><p>the <code>asp</code> parameter to <code><a href='http://www.rdocumentation.org/packages/graphics/topics/image'>image</a></code>
+which contorls aspect ratio</p></td>
     </tr>
     <tr>
       <th>...</th>

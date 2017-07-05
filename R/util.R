@@ -50,6 +50,8 @@ mandelbrot_palette <- function(palette, fold = TRUE,
 #'   \code{\link[mandelbrot]{mandelbrot_palette}}
 #' @param transform the name of a transformation to apply to the number
 #'   of iterations matrix
+#' @param asp the \code{asp} parameter to \code{\link[graphics]{image}}
+#'   which contorls aspect ratio
 #' @param ... extra arguments passed to \code{\link[graphics]{image}}
 #'
 #' @importFrom grDevices grey.colors
@@ -57,7 +59,7 @@ mandelbrot_palette <- function(palette, fold = TRUE,
 #' @export
 plot.mandelbrot <- function(x,
   col = mandelbrot_palette(c("white", grey.colors(50))),
-  transform = c("none", "inverse", "log"), ...) {
+  transform = c("none", "inverse", "log"), asp = 1, ...) {
 
   transform <- match.arg(transform)
   old_par <- par()
@@ -77,7 +79,7 @@ plot.mandelbrot <- function(x,
     }
   }
 
-  graphics::image(x, col = col, axes = FALSE, ...)
+  graphics::image(x, col = col, axes = FALSE, asp = asp, ...)
 
   par <- old_par
 }
