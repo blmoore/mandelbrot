@@ -1,6 +1,6 @@
 Package: mandelbrot
 Type: Package
-Title: Generates views on the Mandelbrot set
+Title: Generates Views on the Mandelbrot Set
 Version: 0.2.0
 Authors@R: c(
   person("Ben", "Moore", email = "ben@blm.io", role = c("aut", "cre")),
