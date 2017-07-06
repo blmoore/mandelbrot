@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Generates views on the Mandelbrot set • mandelbrot</title>
+<title>Generates Views on the Mandelbrot Set • mandelbrot</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
@@ -30,6 +30,9 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="news/index.html">News</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
@@ -56,8 +59,14 @@
 <p><a href="https://travis-ci.org/blmoore/mandelbrot"><img src="https://travis-ci.org/blmoore/mandelbrot.svg?branch=master" alt="travis_status"></a> <a href="https://codecov.io/gh/blmoore/mandelbrot"><img src="https://codecov.io/gh/blmoore/mandelbrot/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://cran.r-project.org/package=mandelbrot"><img src="http://www.r-pkg.org/badges/version/mandelbrot" alt="CRAN_badge"></a></p>
 <p>Curious whether your favourite complex number is a member of the Mandelbrot set?</p>
 <p>—No? Then probably you just want to draw pretty pictures.</p>
-<p>Install with:</p>
+<div id="install" class="section level2">
+<h2 class="hasAnchor">
+<a href="#install" class="anchor"></a>Install</h2>
+<p>Install from CRAN:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"mandelbrot"</span>)</code></pre></div>
+<p>Or get the development version:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">"blmoore/mandelbrot"</span>)</code></pre></div>
+</div>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h2>
@@ -123,7 +132,12 @@ df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mb)
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2 class="hasAnchor">
-<a href="#sidebar" class="anchor"></a>License</h2>
+<a href="#sidebar" class="anchor"></a>Links</h2>
+<ul class="list-unstyled">
+<li>Download from CRANhttps://cran.r-project.org/package=mandelbrot at <br><a href="https://cran.r-project.org/package=mandelbrot">https://​cran.r-project.org/​package=mandelbrot</a>
+</li>
+</ul>
+<h2>License</h2>
 <p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE.html">LICENSE</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">

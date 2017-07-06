@@ -11,7 +11,16 @@ Curious whether your favourite complex number is a member of the Mandelbrot set?
 
 —No? Then probably you just want to draw pretty pictures.
 
-Install with:
+Install
+-------
+
+Install from CRAN:
+
+``` r
+install.packages("mandelbrot")
+```
+
+Or get the development version:
 
 ``` r
 devtools::install_github("blmoore/mandelbrot")

@@ -34,9 +34,17 @@ of the Mandelbrot set?
 
 —No? Then probably you just want to draw pretty pictures.
 
-Install with:
+## Install
 
-```{r install, eval=FALSE}
+Install from CRAN:
+
+```{r cran_install, eval=FALSE}
+install.packages("mandelbrot")
+```
+
+Or get the development version:
+
+```{r github_install, eval=FALSE}
 devtools::install_github("blmoore/mandelbrot")
 ```
 
