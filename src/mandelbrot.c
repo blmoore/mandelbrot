@@ -57,45 +57,8 @@ void mandelbrot_(double *xcoo, double *ycoo, int *nx,
        * transforming this vector into a suitable matrix
        * for plotting, etc.
        */
-      set[i * (*ny) + j] = k;
-    }
-  }
-  return;
-}
-
-/* Alt interface to above that generates set data in
- * a more convenient shape for fast reformatting
- */
-void mandelbrot_alt(double *xcoo, double *ycoo, int *nx,
-  int *ny, int *set, int *iter)
-
-{
-  int i, j, k;
-  double z[2], c[2], oldz[2];
-
-  for(i = 0; i < *nx; i++) {
-
-    for(j = 0; j < *ny; j++) {
-
-      c[0] = xcoo[i]; c[1] = ycoo[j];
-      z[0] = 0;       z[1] = 0;
-
-      for(k = 1; k < *iter + 1; k++) {
-
-        oldz[0] = z[0]; oldz[1] = z[1];
-
-        // the mandelbrot mapping z -> z^2 + c
-        z[0] = oldz[0]*oldz[0] - oldz[1]*oldz[1] + c[0];
-        z[1] = 2 * oldz[0]*oldz[1] + c[1];
-
-        if((z[0]*z[0] + z[1]*z[1]) > 4) {
-          break;
-        }
-      }
-
       set[j * (*nx) + i] = k;
     }
   }
   return;
 }
-
