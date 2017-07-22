@@ -89,7 +89,7 @@ mandelbrot <- function(xlim = c(-2, 2), ylim = c(-2, 2),
   # suitable for image(), persp(), etc. and return it.
   structure(
     list(x = x_coord, y = y_coord,
-      z = matrix(this_set, ncol = y_res, byrow = T)
+      z = matrix(this_set, ncol = y_res)
     ),
     class = c("mandelbrot", "list")
   )
@@ -97,7 +97,7 @@ mandelbrot <- function(xlim = c(-2, 2), ylim = c(-2, 2),
 
 #' @rdname mandelbrot
 #'
-#' @useDynLib mandelbrot mandelbrot_alt
+#' @useDynLib mandelbrot mandelbrot_
 #'
 #' @export
 mandelbrot0 <- function(xlim = c(-2, 2), ylim = c(-2, 2),
@@ -129,7 +129,7 @@ mandelbrot0 <- function(xlim = c(-2, 2), ylim = c(-2, 2),
   set <- numeric(x_res * y_res)
 
   # This is the call to the C function itself
-  this_set <- .C("mandelbrot_alt",
+  this_set <- .C("mandelbrot_",
     xcoo = as.double(x_coord),
     ycoo = as.double(y_coord),
     nx = as.integer(x_res),
