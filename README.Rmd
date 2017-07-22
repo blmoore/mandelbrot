@@ -70,7 +70,6 @@ plot(mb, col = cols)
 Experiment with transforms:
 
 ```{r trans, fig.height=3.5, fig.width=7}
-# layout config (reset after)
 par(mfrow = c(1, 2), pty = "s", mar = rep(0, 4))
 plot(mb, col = cols, transform = "inverse")
 plot(mb, col = cols, transform = "log")
@@ -110,11 +109,12 @@ ggplot(df, aes(x = x, y = y, fill = value)) +
 
 ## See also
 
-[shinybrot](https://github.com/blmoore/shinybrot) is a Shiny web app 
+* [shinybrot](https://github.com/blmoore/shinybrot) is a Shiny web app 
 that enables interactive exploration of the Mandelbrot set as generated
-by this package.
+by this package. Hosted on shinyapps: https://blmr.shinyapps.io/shinybrot
+* [This blog post](https://benjaminlmoore.wordpress.com/2017/06/27/the-mandelbrot-set-in-r/)
+on the R package and Shiny app.
 
-Hosted on shinyapps: https://blmr.shinyapps.io/shinybrot
 
 ## Credits
 
